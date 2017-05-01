@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+		<appender name="consoleLog" class="org.apache.log4j.ConsoleAppender">
+			<layout class ="org.apache.log4j.PatternLayout">
+				<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}] {%p} - thread : %t - %l - %m%n"/>
+			</layout>
+		</appender>
+		<appender name="fileRotating" class="org.apache.log4j.RollingFileAppender">
+			<param name="file" value="/var/run/botV1/Log/logging.log"/>
+			<param name="maxFileSize" value="1024KB"/>
+			<param name="maxBackupIndex" value="3"/>
+			<layout class="org.apache.log4j.PatternLayout">
+				<param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss}] {%p} - thread : %t - %l - %m%n"/>
+			</layout>
+		</appender>
+	
+	<!-- Definition des loggers -->
+		<logger name="fr.dvmk.quizzBotDiscord.bo" additivity="false">
+			<appender-ref ref="fileRotating"/>
+		</logger>	
+		<logger name="fr.dvmk.quizzBotDiscord..dal" additivity="false">
+			<appender-ref ref="fileRotating"/>
+		</logger>
+		<logger name="fr.dvmk.quizzBotDiscord.manager" additivity="false">
+			<appender-ref ref="fileRotating"/>
+		</logger>
+		<root>
+			<priority value="INFO"/>
+			<appender-ref ref="fileRotating"/>
+		</root>
+</log4j:configuration>
