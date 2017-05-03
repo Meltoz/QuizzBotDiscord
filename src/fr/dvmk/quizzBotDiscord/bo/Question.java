@@ -2,46 +2,40 @@ package fr.dvmk.quizzBotDiscord.bo;
 
 import java.io.Serializable;
 
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-
 public class Question implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 208912371537830052L;
-	private int _id;
-	private String _enonce;
-	private String _reponse;
+	private int id;
+	private String enonce;
+	private String reponse;
 	
 	public Question(){
 		
 	}
 	
-	@XmlAttribute(name="id")
+	
 	public int getId(){
-		return _id;
+		return id;
 	}
 	public void setId(int id){
-		_id=id;
+		this.id=id;
 	}
 	
-	@XmlElement(name="statement")
+	
 	public String getEnonce(){
-		return _enonce;
+		return enonce;
 	}
 	public void setEnonce(String enonce){
-		_enonce = enonce;
+		this.enonce = enonce;
 	}
 	
-	@XmlElement(name="response")
+
 	public String getReponse(){
-		return _reponse;
+		return reponse;
 	}
 	
 	public void setReponse(String reponse){
-		_reponse = reponse;
+		this.reponse = reponse;
 	}
 	
 }
